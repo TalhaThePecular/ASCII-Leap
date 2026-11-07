@@ -4,8 +4,9 @@ section .data
 
 section .text
 global start
-start:;                 CURRENTLY have NO END INFINTE. FIX IT
+;                 CURRENTLY have NO END INFINTE. FIX IT as wont read interrupts of exit to display graphic
 call initializeGraphics
+start:
 call readKey
 call displayShape
 ;call collision make its logic. will write on monday
@@ -15,7 +16,7 @@ jmp start
 initializeGraphics:
     mov ax,13h
     int 10h
-    mov ax,0A00
+    mov ax,0A000h
     mov es,ax
     ret
 
